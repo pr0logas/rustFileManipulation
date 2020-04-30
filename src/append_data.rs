@@ -9,7 +9,7 @@ pub fn write(fname: &str, count: i32, data: String) -> &str {
             .expect("Cannot open file");
         f.write_all(data.as_bytes()).expect("Write failed");
         let progress = format!("{:#?}", i);
-        println!("{}", progress)
+        println!("We are working: {0}/{1}", count, progress)
     }
     let status: &str = "OK";
     status
