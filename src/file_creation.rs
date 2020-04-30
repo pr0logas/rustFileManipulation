@@ -1,10 +1,16 @@
+use std::error::Error;
 use std::fs::File;
-use std::io::Read;
 
-pub fn check_file(name: &str) {
-    println!("{:#?}", file);
+enum Result<T, E> {
+    OK(T),
+    Err(E),
+}
+
+pub fn check_file(name: &str) -> Box<String> {
+    let f = File::open(name).expect("No such a file");
+    f
 }
 
 pub fn create_file(name: &str) {
-    let file = File::create(name).expect("Create failed");
+    let f = File::create(name).expect("File creation failed");
 }
